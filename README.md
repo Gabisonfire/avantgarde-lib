@@ -56,8 +56,8 @@ Distributed under the MIT License.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/abisonfire/avantgarde-lib.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/Gabisonfire/avantgarde-lib.svg?style=flat-square
 [contributors-url]: https://github.com/Gabisonfire/avantgarde-lib/graphs/contributors
-[issues-shield]: https://img.shields.io/github/Gabisonfire/avantgarde-lib.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/Gabisonfire/avantgarde-lib.svg?style=flat-square
 [issues-url]: https://github.com/Gabisonfire/avantgarde-lib/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
