@@ -61,3 +61,4 @@ Distributed under the MIT License.
 [issues-shield]: https://img.shields.io/github/issues/Gabisonfire/avantgarde-lib.svg?style=flat-square
 [issues-url]: https://github.com/Gabisonfire/avantgarde-lib/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-url]: https://opensource.org/licenses/MIT
