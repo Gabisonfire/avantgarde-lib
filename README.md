@@ -28,7 +28,7 @@ Avantgarde aims to offer a simple framework will no fluff to easily update your 
 ## Getting Started
 
 * Install package via NuGet
-* View the [wiki] (https://github.com/Gabisonfire/avantgarde-lib/wiki)
+* Head to the [wiki](https://github.com/Gabisonfire/avantgarde-lib/wiki)
 
 <!-- ROADMAP -->
 ## Roadmap
