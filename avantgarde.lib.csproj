@@ -1,7 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Version>1.0.1.0</Version>
+    <PackageId>avantgarde</PackageId>
+    <Company>avantgarde</Company>
+    <Product>avantgarde</Product>
+    <Authors>Gabisonfire</Authors>
+    <Description>Avantgarde is a dotnet core framework to easily update your application.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Gabisonfire/avantgarde-lib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Gabisonfire/avantgarde-lib</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>updater dotnet dotnetcore framework</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Gab\Source\Repos\avantgarde\avantgardelib\avantgarde.lib.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Gab\Source\Repos\avantgarde\avantgardelib\avantgarde.lib.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

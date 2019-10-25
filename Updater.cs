@@ -18,6 +18,11 @@ namespace Avantgarde.Core
 
         const string AGBIN_URL = "https://github.com/Gabisonfire/avantgarde-bin/releases/latest/download/agbin.zip";
 
+        /// <summary>
+        /// Creates an Updater instance
+        /// </summary>
+        /// <param name="path">The application root path</param>
+        /// <param name="updateAG">Update the Avantgarde binary</param>
         public Updater(string path, bool updateAG = false)
         {
             SettingsFile = Settings.Load();
@@ -25,6 +30,10 @@ namespace Avantgarde.Core
             SettingsFile.UpdateAG = updateAG;
         }
 
+        /// <summary>
+        /// Checks for available updates by comparing the settings version with the file manifest.
+        /// </summary>
+        /// <returns>True if an update is found.</returns>
         public bool CheckForUpdates()
         {            
             Manifest = GetFileManifest();
@@ -46,6 +55,9 @@ namespace Avantgarde.Core
             
         }
 
+        /// <summary>
+        /// Launch the update process.
+        /// </summary>
         public void Update()
         {
             // Call avantgarde.bin.exe

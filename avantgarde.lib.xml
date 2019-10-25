@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>avantgarde.lib</name>
+    </assembly>
+    <members>
+        <member name="M:Avantgarde.Lib.Utils.Log(System.String,Avantgarde.Lib.Utils.MsgType,System.Boolean)">
+            <summary>
+            Prettier logging method
+            </summary>
+            <param name="msg">The message</param>
+            <param name="msgType">Message type or severity</param>
+            <param name="logToFile">Log to file as well.</param>
+        </member>
+        <member name="M:Avantgarde.Core.Updater.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates an Updater instance
+            </summary>
+            <param name="path">The application root path</param>
+            <param name="updateAG">Update the Avantgarde binary</param>
+        </member>
+        <member name="M:Avantgarde.Core.Updater.CheckForUpdates">
+            <summary>
+            Checks for available updates by comparing the settings version with the file manifest.
+            </summary>
+            <returns>True if an update is found.</returns>
+        </member>
+        <member name="M:Avantgarde.Core.Updater.Update">
+            <summary>
+            Launch the update process.
+            </summary>
+        </member>
+    </members>
+</doc>
