@@ -88,9 +88,17 @@ namespace Avantgarde.Core
                 dm.DownloadRemoteFile(AGBIN_URL, agbinDir + "agbin.zip");
                 ZipFile.ExtractToDirectory(agbinDir + "agbin.zip", agbinDir);
                 File.Delete(agbinDir + "agbin.zip");
-            }            
+            }
+
             // Move settings and file manifest to the agbin directory for launch
-            File.Move(SettingsFile.OriginalAppPath + Settings.FILES_FILENAME, agbinDir + Settings.FILES_FILENAME, true);
+            string pathToAgFiles = agbinDir + Settings.FILES_FILENAME;
+
+            if (File.Exists(pathToAgFiles))
+            {
+                File.Delete(pathToAgFiles);
+            }
+
+            File.Move(SettingsFile.OriginalAppPath + Settings.FILES_FILENAME, pathToAgFiles);
             File.Copy(SettingsFile.OriginalAppPath + Settings.SETTINGS_FILENAME, agbinDir + Settings.SETTINGS_FILENAME, true);                        
         }
 

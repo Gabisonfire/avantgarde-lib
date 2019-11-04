@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFrameworks>netcoreapp3.0;netstandard2.0</TargetFrameworks>
     <Version>1.0.1.0</Version>
     <PackageId>avantgarde</PackageId>
     <Company>avantgarde</Company>
@@ -16,11 +16,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Gab\Source\Repos\avantgarde\avantgardelib\avantgarde.lib.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)avantgarde.lib.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Gab\Source\Repos\avantgarde\avantgardelib\avantgarde.lib.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)avantgarde.lib.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
