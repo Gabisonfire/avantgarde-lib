@@ -63,8 +63,8 @@ namespace Avantgarde.Core
             // Call avantgarde.bin.exe
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.UseShellExecute = true;
-            psi.WorkingDirectory = SettingsFile.OriginalAppPath + "agbin";
-            psi.Arguments = $"\"{SettingsFile.OriginalAppPath}\"";
+            psi.WorkingDirectory = Path.Combine(SettingsFile.OriginalAppPath, "agbin");
+            psi.Arguments = $"\"{SettingsFile.OriginalAppPath.TrimEnd(Path.DirectorySeparatorChar)}\""; // strip the ending '\' from the path so the argument is correctly quoted 
             psi.FileName = "avantgarde.bin.exe";
             Process.Start(psi);
             Environment.Exit(0);
@@ -74,7 +74,7 @@ namespace Avantgarde.Core
         {
             //Download avantgarde bin
             DownloadManager dm = new DownloadManager();
-            string agbinDir = SettingsFile.OriginalAppPath + "agbin/";
+            string agbinDir = Path.Combine(SettingsFile.OriginalAppPath, "agbin/");
             if(SettingsFile.UpdateAG) // Delete the existing agbin directory so the lib will redownload.
             {
                 if(Directory.Exists(agbinDir))
@@ -83,34 +83,40 @@ namespace Avantgarde.Core
                 }
             }
             Directory.CreateDirectory(agbinDir);
-            if (!File.Exists(agbinDir + "avantgarde.bin.exe"))
+
+            if (!File.Exists(Path.Combine(agbinDir, "avantgarde.bin.exe")))
             {
-                dm.DownloadRemoteFile(AGBIN_URL, agbinDir + "agbin.zip");
-                ZipFile.ExtractToDirectory(agbinDir + "agbin.zip", agbinDir);
-                File.Delete(agbinDir + "agbin.zip");
+                string pathToZip = Path.Combine(agbinDir, "agbin.zip");
+
+                dm.DownloadRemoteFile(AGBIN_URL, pathToZip);
+                ZipFile.ExtractToDirectory(pathToZip, agbinDir);
+                File.Delete(pathToZip);
             }
 
             // Move settings and file manifest to the agbin directory for launch
-            string pathToAgFiles = agbinDir + Settings.FILES_FILENAME;
+            string pathToAgFiles = Path.Combine(agbinDir, Settings.FILES_FILENAME);
+            string pathToAgSettings = Path.Combine(agbinDir, Settings.SETTINGS_FILENAME);
 
             if (File.Exists(pathToAgFiles))
             {
                 File.Delete(pathToAgFiles);
             }
 
-            File.Move(SettingsFile.OriginalAppPath + Settings.FILES_FILENAME, pathToAgFiles);
-            File.Copy(SettingsFile.OriginalAppPath + Settings.SETTINGS_FILENAME, agbinDir + Settings.SETTINGS_FILENAME, true);                        
+            File.Move(Path.Combine(SettingsFile.OriginalAppPath, Settings.FILES_FILENAME), pathToAgFiles);
+            File.Copy(Path.Combine(SettingsFile.OriginalAppPath, Settings.SETTINGS_FILENAME), pathToAgSettings, true);                        
         }
 
         FileManifest GetFileManifest()
         {
+            string pathToAgFiles = Path.Combine(SettingsFile.OriginalAppPath, Settings.FILES_FILENAME); 
+
             DownloadManager dm = new DownloadManager();
             Utils.Log("Getting file manifest...");
             string filesJson;
             if (SettingsFile.FileManifest.StartsWith("http"))
             {
-                dm.DownloadRemoteFile(SettingsFile.FileManifest, SettingsFile.OriginalAppPath + Settings.FILES_FILENAME);
-                filesJson = File.ReadAllText(SettingsFile.OriginalAppPath + Settings.FILES_FILENAME);
+                dm.DownloadRemoteFile(SettingsFile.FileManifest, pathToAgFiles);
+                filesJson = File.ReadAllText(pathToAgFiles);
             }
             else
             {
