@@ -64,7 +64,7 @@ namespace Avantgarde.Core
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.UseShellExecute = true;
             psi.WorkingDirectory = SettingsFile.OriginalAppPath + "agbin";
-            psi.Arguments = SettingsFile.OriginalAppPath;
+            psi.Arguments = $"\"{SettingsFile.OriginalAppPath}\"";
             psi.FileName = "avantgarde.bin.exe";
             Process.Start(psi);
             Environment.Exit(0);

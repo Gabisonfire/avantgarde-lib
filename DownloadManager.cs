@@ -3,8 +3,7 @@ using System.IO;
 using System.Net;
 
 namespace Avantgarde.Lib
-{
-    
+{    
     public class DownloadManager
     {
         static int counter;

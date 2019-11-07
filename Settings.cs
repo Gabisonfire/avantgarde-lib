@@ -27,7 +27,7 @@ namespace Avantgarde.Lib
         {
             if(!File.Exists(path))
             {
-                Utils.Log("Cannot find settings.json", Utils.MsgType.error);
+                Utils.Log($"Cannot find {SETTINGS_FILENAME}", Utils.MsgType.error);
                 Environment.Exit(2);
             }
             Settings settings = null;
