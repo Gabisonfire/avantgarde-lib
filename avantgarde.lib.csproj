@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;netstandard2.0</TargetFrameworks>
-    <Version>1.0.3.0</Version>
+    <TargetFrameworks>netcoreapp3.0;netstandard2.0;net472;net461</TargetFrameworks>
+    <Version>1.0.5.0</Version>
     <PackageId>avantgarde</PackageId>
     <Company>avantgarde</Company>
     <Product>avantgarde</Product>
@@ -13,8 +13,8 @@
     <RepositoryUrl>https://github.com/Gabisonfire/avantgarde-lib</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>updater dotnet dotnetcore framework</PackageTags>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

@@ -24,6 +24,7 @@ namespace Avantgarde.Lib
             {                
                 using (WebClient wc = new WebClientWithTimeout())
                 {
+                    wc.Proxy = null;
                     wc.DownloadFileCompleted += (s, e) =>
                     {
                         Console.Write("100%");
@@ -32,7 +33,7 @@ namespace Avantgarde.Lib
                         counter = 0;
                     };
                     wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
-                    wc.OpenRead(url);
+                    Stream stream = wc.OpenRead(url);
                     // Size manipulations
                     string size;
                     long bytes = Convert.ToInt64(wc.ResponseHeaders["Content-Length"]);
@@ -44,9 +45,11 @@ namespace Avantgarde.Lib
                     else
                     {
                         size = mb.ToString() + "MB";
-                    }                    
+                    }
+                    stream.Close();
                     Utils.Log($"Downloading {Path.GetFileName(destination)}: {size}...");
                     wc.DownloadFileTaskAsync(new Uri(url), destination).Wait();
+                    wc.Dispose();
                 }
                 
             }
